@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
         datasets: [{
           label: 'Horas de experiencia',
-          data: [250, 100, 140, 350, 250],
+          data: [250, 100, 240, 350, 250],
           backgroundColor: 'rgba(100, 255, 218, 0.5)',
           borderColor: 'rgba(100, 255, 218, 1)',
           borderWidth: 1
@@ -372,4 +372,5 @@ document.addEventListener("DOMContentLoaded", function () {
         formMessage.style.display = 'block';
       });
   });
+
 });
