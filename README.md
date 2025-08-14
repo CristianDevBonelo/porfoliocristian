@@ -142,22 +142,11 @@ Al participar en este proyecto, aceptas seguir el Código de Conducta.
 
 Gracias por tu interés y respeto por mi trabajo profesional!
 
-text
 
-Esta licencia protege tu trabajo al:
-1. Permitir uso personal y educativo
-2. Prohibir explícitamente el uso comercial
-3. Requerir reconocimiento económico o público para usos comerciales
-4. Mantener tu autoría y derechos
 
-El README ahora incluye:
-- Badge de licencia personalizada
-- Sección de video demostrativo
-- Instrucciones para ejecutar pruebas automatizadas
-- Estructura de proyecto actualizada
-- Explicación clara de los términos de licencia
 
 
 Cristian jesus Bonelo Rios"# porfoliocristian" 
 "# porfoliocristian" 
 "# porfoliocristian" 
+
