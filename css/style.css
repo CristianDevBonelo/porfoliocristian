@@ -995,9 +995,12 @@
    .modal-close :hover{
     background-color: cadetblue !important;
    }
-   #close-steps{
+    #close-steps{
     color: #0a1e2d;
+    border: 1px solid black;
+    border-radius: 2px;
    }
+
 
 
    .modal-steps {
@@ -1021,3 +1024,4 @@
     color: wheat;
     text-decoration: none;
    }
+
