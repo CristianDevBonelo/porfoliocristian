@@ -701,32 +701,42 @@
 
    .back-to-top {
      position: fixed;
-     bottom: 30px;
+     bottom: 40px;
      right: 20px;
      width: 35px;
      height: 35px;
-     background: rgba(100, 255, 218, 0.2);
-     border: 2px solid var(--secondary);
+     background: rgba(4, 54, 43, 0.2);
+     border: 2px solid wheat;
      border-radius: 50%;
      display: flex;
      align-items: center;
      justify-content: center;
      cursor: pointer;
      z-index: 1000;
-     transition: all 0.3s;
+     transition: all 0.6s;
      opacity: 0.7;
+   }
+
+
+
+   .back-to-top i {
+     color: wheat;
+     font-size: 1.1rem;
+     transition: all 0.6s;
+
    }
 
    .back-to-top:hover {
      opacity: 1;
-     background: rgba(100, 255, 218, 0.4);
-     transform: translateY(-5px);
+     background: rgba(8, 8, 8, 0.4);
+     transform: translateY(-20px);
+
    }
 
-   .back-to-top i {
-     color: var(--secondary);
+   .back-to-top i:hover {
      font-size: 1.5rem;
    }
+
 
    .stats-container {
      display: flex;
@@ -1025,6 +1035,7 @@
     color: wheat;
     text-decoration: none;
    }
+
 
 
 
