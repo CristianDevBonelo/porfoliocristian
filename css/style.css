@@ -109,9 +109,8 @@
    }
 
    .hero-name {
-     font-family: "Syne Mono", monospace;
      font-size: 4rem;
-     color: var(--secondary);
+     color: wheat;
      margin-bottom: 20px;
      letter-spacing: 2px;
      text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
@@ -1026,6 +1025,7 @@
     color: wheat;
     text-decoration: none;
    }
+
 
 
 
