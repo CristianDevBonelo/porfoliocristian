@@ -67,10 +67,9 @@
      animation-fill-mode: both;
    }
 
-   .section-title {
-     font-family: "Major Mono Display", monospace;
+    .section-title {
      font-size: 2.5rem;
-     color: var(--secondary);
+     color: wheat;
      margin-bottom: 50px;
      position: relative;
      text-transform: uppercase;
@@ -1024,4 +1023,5 @@
     color: wheat;
     text-decoration: none;
    }
+
 
