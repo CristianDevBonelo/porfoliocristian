@@ -379,7 +379,7 @@
    .timeline::after {
      content: "";
      position: absolute;
-     width: 4px;
+     width: 1px;
      background-color: var(--secondary);
      top: 0;
      bottom: 0;
@@ -1034,6 +1034,7 @@
     color: wheat;
     text-decoration: none;
    }
+
 
 
 
