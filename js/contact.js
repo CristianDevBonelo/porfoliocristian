@@ -14,7 +14,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   })
   .then(response => {
     if (response.ok) {
-      formMessage.textContent = "✅ ¡Gracias! Tu mensaje ha sido enviado.";
+      formMessage.textContent = "✅ ¡Gracias por escribirme! Tu mensaje ha sido recibido correctamente y me pondré en contacto contigo a la mayor brevedad. ";
       formMessage.style.color = "green";
       form.reset();
     } else {
@@ -27,3 +27,4 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     formMessage.style.color = "red";
   });
 });
+
