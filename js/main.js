@@ -1,20 +1,6 @@
 // Animación al hacer scroll
 document.addEventListener("DOMContentLoaded", function () {
-  const observerOptions = {
-    threshold: 0.1,
-  };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll(".animate-on-scroll").forEach((el) => {
-    observer.observe(el);
-  });
 
   // Efecto de escritura para el nombre
   const heroName = document.querySelector(".hero-name");
@@ -77,6 +63,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
+  const observerOptions = {
+    threshold: 0.2, 
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");  
+      } else {
+        entry.target.classList.remove("visible"); 
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+    observer.observe(el);
+  });
+
+
   // Animación de estadísticas
   function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -121,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
         datasets: [{
           label: 'Horas de experiencia',
-          data: [250, 100, 240, 350, 250],
+          data: [250, 100, 140, 350, 250],
           backgroundColor: 'rgba(100, 255, 218, 0.5)',
           borderColor: 'rgba(100, 255, 218, 1)',
           borderWidth: 1
@@ -372,5 +378,4 @@ document.addEventListener("DOMContentLoaded", function () {
         formMessage.style.display = 'block';
       });
   });
-
 });
