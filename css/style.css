@@ -1138,10 +1138,12 @@
        font-size: 10px;
      }
 
-     .header-time {
+      .header-time {
        font-size: 10px;
-       margin-right: -20px;
+       margin-right: -28px;
        margin-top: -10px;
+       border: none;
+       background: none;
      }
 
      .circle-img {
@@ -1149,4 +1151,5 @@
 
      }
    }
+
 
