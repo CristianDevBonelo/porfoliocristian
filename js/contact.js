@@ -1,5 +1,4 @@
-// logica de contacto y validacion de correo 
-
+// Lógica de contacto y validación de correo
 document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault(); 
 
@@ -14,17 +13,32 @@ document.getElementById("contactForm").addEventListener("submit", function(event
   })
   .then(response => {
     if (response.ok) {
-      formMessage.textContent = "✅ ¡Gracias por escribirme! Tu mensaje ha sido recibido correctamente y me pondré en contacto contigo a la mayor brevedad. ";
-      formMessage.style.color = "green";
+      formMessage.textContent = "✅ ¡Gracias por contactarme! Tu mensaje fue enviado correctamente.";
+      formMessage.style.color = "wheat"; 
+      formMessage.style.display = "block"; 
       form.reset();
+
+      setTimeout(() => { formMessage.style.display = "none"; }, 5000);
     } else {
-      formMessage.textContent = "❌ Ocurrió un error al enviar el mensaje.";
-      formMessage.style.color = "red";
+      formMessage.textContent = "❌ Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.";
+      formMessage.style.color = "#dc2626"; 
+      formMessage.style.display = "block";
     }
   })
   .catch(() => {
-    formMessage.textContent = "❌ No se pudo enviar el mensaje. Revisa tu conexión.";
-    formMessage.style.color = "red";
+    formMessage.textContent = "❌ No se pudo enviar el mensaje. Verifica tu conexión.";
+    formMessage.style.color = "#dc2626";
+    formMessage.style.display = "block";
   });
 });
 
+document.getElementById("btnContacto").addEventListener("click", function () {
+  const correo = "cristianbonelorios@hotmail.com";
+  
+  const subject = encodeURIComponent("Solicitud de contacto");
+  const body = encodeURIComponent(
+    "Hola Cristian,\n\nEstoy interesado en recibir más información sobre tus servicios.\n\n¡Gracias!"
+  );
+
+  window.location.href = `mailto:${correo}?subject=${subject}&body=${body}`;
+});
