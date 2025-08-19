@@ -332,50 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, { threshold: 0.3 });
 
   githubObserver.observe(githubSection);
-  // Funcion de contacto MAIL
-  document.getElementById("btnContacto").addEventListener("click", function () {
-    const correo = "cristianbonelorios@hotmail.com";
-    const params = new URLSearchParams({
-      subject: "Contacto importante",
-      body: "Hola,\n\nQuiero mas información de tí...."
-    });
 
-    window.location.href = `mailto:${correo}?${params.toString()}`;
-  });
-  // Envío de formulario con AJAX
-  const contactForm = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
-
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    fetch('', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => {
-        if (response.ok) return response.text();
-        throw new Error('Network response was not ok.');
-      })
-      .then(data => {
-        formMessage.textContent = data;
-        formMessage.className = 'form-message form-success';
-        formMessage.style.display = 'block';
-
-        // Resetear el formulario después de enviar
-        contactForm.reset();
-
-        // Ocultar el mensaje después de 5 segundos
-        setTimeout(() => {
-          formMessage.style.display = 'none';
-        }, 5000);
-      })
-      .catch(error => {
-        formMessage.textContent = 'Error: ' + error.message;
-        formMessage.className = 'form-message form-error';
-        formMessage.style.display = 'block';
-      });
-  });
 });
+
