@@ -660,17 +660,16 @@
 
    .header-time {
      position: absolute;
-     top: 20px;
+     top: 25px;
      right: 20px;
      font-size: 0.8rem;
      color: wheat;
-     background: rgba(10, 25, 47, 0.7);
+     background: rgb(4, 13, 27);
      padding: 8px 15px;
      border-radius: 20px;
-     border: 1px solid var(--secondary);
+     border: 1px solid wheat;
      font-family: 'Share Tech Mono', monospace;
    }
-
    .scroll-down-btn {
      position: absolute;
      bottom: 30px;
@@ -1151,5 +1150,6 @@
 
      }
    }
+
 
 
