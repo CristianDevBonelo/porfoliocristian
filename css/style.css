@@ -162,6 +162,7 @@
      z-index: 1;
      text-transform: uppercase;
      letter-spacing: 2px;
+     text-decoration:none;
    }
 
    .btn:hover {
@@ -1194,3 +1195,4 @@
    }
 
  
+
