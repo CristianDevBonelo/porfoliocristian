@@ -123,7 +123,7 @@
    }
 
    .hero-description {
-     font-size: 1.2rem;
+     font-size: 1rem;
      margin-bottom: 40px;
      max-width: 600px;
      position: relative;
@@ -136,8 +136,9 @@
      left: 0;
      top: 0;
      height: 100%;
-     width: 4px;
+     width: 2px;
      background-color: var(--secondary);
+     box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
    }
 
    .hero-buttons {
@@ -670,6 +671,7 @@
      border: 1px solid wheat;
      font-family: 'Share Tech Mono', monospace;
    }
+
    .scroll-down-btn {
      position: absolute;
      bottom: -10px;
@@ -677,7 +679,7 @@
      transform: translateX(-50%);
      padding: 12px 25px;
      background: rgba(100, 255, 218, 0.1);
-     border: 2px solid var(--secondary);
+     border: 1px solid wheat;
      color: var(--secondary);
      font-family: 'Share Tech Mono', monospace;
      border-radius: 30px;
@@ -753,12 +755,26 @@
 
    .stat-item {
      text-align: center;
-     background: rgba(10, 25, 47, 0.7);
+     background:
+       linear-gradient(135deg,
+         rgba(77, 60, 60, 0.05) 25%,
+         transparent 25%,
+         transparent 50%,
+         rgba(24, 22, 22, 0.05) 50%,
+         rgba(44, 121, 156, 0.05) 75%,
+         transparent 75%,
+         transparent),
+       rgba(10, 25, 47, 0.7);
+     background-size: 30px 40px;
      border: 1px solid var(--secondary);
      padding: 20px;
      min-width: 150px;
-     border-radius: 5px;
+     border-radius: 10px;
+     backdrop-filter: blur(6px);
+     -webkit-backdrop-filter: blur(6px);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
    }
+
 
    .stat-number {
      font-size: 2.5rem;
@@ -1128,7 +1144,7 @@
      object-fit: cover;
    }
 
-    @media (max-width: 768px) {
+   @media (max-width: 768px) {
      .sticky-banner {
        top: 10px;
      }
@@ -1152,11 +1168,5 @@
      .circle-img {
        left: 33%;
        top: 30px;
-
      }
    }
-
-
-
-
-
