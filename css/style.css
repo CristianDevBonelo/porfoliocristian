@@ -810,6 +810,7 @@
      transform: translateY(-5px);
      border-color: var(--secondary);
      box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+     
    }
 
    .study-card i {
@@ -1169,4 +1170,25 @@
        left: 33%;
        top: 30px;
      }
+     .hero-image::before{
+      display: none;
+     }
+     .stat-item{
+      width: 100%;
+     }
+     .section-title{
+      font-size: 17px;
+     }
+     .profile-img{
+      width: 100%;
+      border-bottom-left-radius: 40px;
+      border-top-right-radius: 40px
+     }
+     .img-perfil{
+      width: 90%;
+      align-items: center;
+      height: auto;
+     }
    }
+
+ 
