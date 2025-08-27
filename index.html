@@ -18,7 +18,9 @@
 </head>
 
 <body>
-
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
 
   <!-- Hero Section -->
   <section id="hero">
@@ -865,6 +867,35 @@
     </div>
   </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('i');
+      
+      // Verificar si hay una preferencia guardada
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+      
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+          localStorage.setItem('theme', 'light');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else {
+          localStorage.setItem('theme', 'dark');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      });
+    });
+  </script>
+
 
   <script src="js/main.js"></script>
   <script src="js/contact.js"></script>
@@ -874,6 +905,7 @@
 
 
 </html>
+
 
 
 
