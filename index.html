@@ -872,11 +872,25 @@
       const themeToggle = document.getElementById('themeToggle');
       const icon = themeToggle.querySelector('i');
       
+      // Función para actualizar la imagen del footer según el tema
+      function updateFooterImage() {
+        const footerImage = document.querySelector('.image_footer');
+        if (footerImage) {
+          if (document.body.classList.contains('light-mode')) {
+            footerImage.src = 'assets/two.png';
+          } else {
+            footerImage.src = 'assets/footer.png';
+          }
+        }
+      }
+      
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
         document.body.classList.add('light-mode');
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
+        
+        updateFooterImage();
       }
       
       themeToggle.addEventListener('click', function() {
@@ -891,9 +905,11 @@
           icon.classList.remove('fa-sun');
           icon.classList.add('fa-moon');
         }
+        
+        updateFooterImage();
       });
     });
-  </script>
+</script>
 
 
   <script src="js/main.js"></script>
@@ -904,6 +920,7 @@
 
 
 </html>
+
 
 
 
