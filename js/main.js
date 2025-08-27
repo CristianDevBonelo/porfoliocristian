@@ -118,53 +118,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
   statsObserver.observe(statsSection);
 
-  // Gráfico de estadísticas
-  function initStatsChart() {
-    const ctx = document.getElementById('statsChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
-        datasets: [{
-          label: 'Horas de experiencia',
-          data: [250, 100, 140, 350, 250],
-          backgroundColor: 'rgba(100, 255, 218, 0.5)',
-          borderColor: 'rgba(100, 255, 218, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: '#ccd6f6'
-            },
-            grid: {
-              color: 'rgba(136, 146, 176, 0.3)'
-            }
+function initStatsChart() {
+  const ctx = document.getElementById('statsChart').getContext('2d');
+
+  // Plugin para sombra
+  const shadowPlugin = {
+    id: 'shadowPlugin',
+    beforeDatasetsDraw(chart, args, options) {
+      const {ctx} = chart;
+      ctx.save();
+
+      // Detectar si la página está en modo oscuro o claro
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      ctx.shadowColor = isDark ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetX = 4;
+      ctx.shadowOffsetY = 4;
+    },
+    afterDatasetsDraw(chart) {
+      chart.ctx.restore();
+    }
+  };
+
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
+      datasets: [{
+        label: 'Horas de experiencia',
+        data: [250, 100, 140, 350, 250],
+        backgroundColor: 'rgba(100, 255, 218, 0.7)',
+        borderColor: 'rgba(100, 255, 218, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: '#ccd6f6'
           },
-          x: {
-            ticks: {
-              color: '#ccd6f6'
-            },
-            grid: {
-              color: 'rgba(136, 146, 176, 0.3)'
-            }
+          grid: {
+            color: 'rgba(136, 146, 176, 0.3)'
           }
         },
-        plugins: {
-          legend: {
-            labels: {
-              color: '#ccd6f6'
-            }
+        x: {
+          ticks: {
+            color: '#ccd6f6'
+          },
+          grid: {
+            color: 'rgba(136, 146, 176, 0.3)'
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#ccd6f6'
           }
         }
       }
-    });
-  }
+    },
+    plugins: [shadowPlugin] // activar el plugin de sombra
+  });
+}
 
   // Modal para estudios adicionales
   const modal = document.getElementById('studyModal');
@@ -334,4 +355,5 @@ document.addEventListener("DOMContentLoaded", function () {
   githubObserver.observe(githubSection);
 
 });
+
 
