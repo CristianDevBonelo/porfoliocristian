@@ -1575,4 +1575,22 @@
       }
     }
 
+  body.light-mode .stat-number,
+  body.light-mode .stat-label {
+    color: #000 !important;
+  }
+
+  body.light-mode .achievement-item h3 {
+    color: #000 !important;
+  }
+
+  body.light-mode .achievement-item .fa-certificate,
+  body.light-mode .achievement-item .fa-trophy {
+    color: #000 !important;
+  }
+
+  body.light-mode .image_footer {
+    content: url('assets/two.png');
+
+
 
