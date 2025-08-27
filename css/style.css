@@ -67,7 +67,7 @@
     /* Botón de cambio de tema */
     .theme-toggle {
       position: fixed;
-      top: 40px;
+      top: 55px;
       right: 20px;
       z-index: 10000;
       width: 40px;
@@ -1571,4 +1571,5 @@
         height: auto;
       }
     }
+
 
