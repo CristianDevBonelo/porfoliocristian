@@ -1,4 +1,4 @@
- :root {
+:root {
       --primary: #0a192f;
       --secondary: #64ffda;
       --light: #ccd6f6;
@@ -67,11 +67,11 @@
     /* Botón de cambio de tema */
     .theme-toggle {
       position: fixed;
-      top: 60px;
+      top: 20px;
       right: 20px;
       z-index: 10000;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -851,8 +851,6 @@
         left: -50px;
         top: 30px;
       }
-      .theme-toggle{
-       top:100px;
     }
 
     .img-perfil {
@@ -1573,7 +1571,3 @@
         height: auto;
       }
     }
-
-
-
-
