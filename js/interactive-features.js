@@ -13,7 +13,7 @@ class PresentationMode {
     
     // Detectar tecla Ctrl+R
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'p' && e.ctrlKey) {
+      if (e.key === 'r' && e.ctrlKey) {
         e.preventDefault();
         this.toggle();
       }
@@ -39,11 +39,11 @@ class PresentationMode {
     this.toggleButton = document.createElement('button');
     this.toggleButton.className = 'presentation-toggle';
     this.toggleButton.id = 'presentationToggle';
-    this.toggleButton.title = 'Activar modo presentación (Ctrl + P)';
+    this.toggleButton.title = 'Activar modo presentación (Ctrl + R)';
     this.toggleButton.innerHTML = `
       <i class="fas fa-desktop"></i>
       <span class="presentation-label">Modo Presentación</span>
-      <span class="shortcut-hint">Ctrl + P</span>
+      <span class="shortcut-hint">Ctrl + R</span>
     `;
     
     this.toggleButton.addEventListener('click', () => this.toggle());
