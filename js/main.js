@@ -357,4 +357,159 @@ function initStatsChart() {
 });
 
 
+// automation-pipeline.js
+document.addEventListener('DOMContentLoaded', function() {
+  const pipelineStages = document.querySelectorAll('.pipeline-stage');
+  const detailCards = document.querySelectorAll('.detail-card');
+  const runButton = document.getElementById('runPipeline');
+  const resetButton = document.getElementById('resetPipeline');
+  const metricValues = document.querySelectorAll('.metric-value');
+  
+  let currentStage = 0;
+  let isRunning = false;
 
+  // Inicializar pipeline
+  function initPipeline() {
+    pipelineStages.forEach(stage => {
+      stage.classList.remove('active', 'completed', 'running');
+    });
+    detailCards.forEach(card => card.style.display = 'none');
+    currentStage = 0;
+    updateMetrics();
+  }
+
+  // Ejecutar pipeline paso a paso
+  function runPipelineStep() {
+    if (currentStage >= pipelineStages.length) {
+      isRunning = false;
+      runButton.innerHTML = '<i class="fas fa-play"></i> Ejecutar Pipeline';
+      runButton.disabled = false;
+      return;
+    }
+
+    // Marcar etapa anterior como completada
+    if (currentStage > 0) {
+      pipelineStages[currentStage - 1].classList.remove('running');
+      pipelineStages[currentStage - 1].classList.add('completed');
+    }
+
+    // Activar etapa actual
+    const currentStageElement = pipelineStages[currentStage];
+    currentStageElement.classList.add('active', 'running');
+    
+    // Mostrar detalles de la etapa
+    showStageDetails(currentStage + 1);
+
+    currentStage++;
+
+    // Continuar con la siguiente etapa después de un delay
+    if (currentStage < pipelineStages.length) {
+      setTimeout(runPipelineStep, 1500);
+    } else {
+      setTimeout(() => {
+        pipelineStages[pipelineStages.length - 1].classList.remove('running');
+        pipelineStages[pipelineStages.length - 1].classList.add('completed');
+        isRunning = false;
+        runButton.innerHTML = '<i class="fas fa-play"></i> Ejecutar Pipeline';
+        runButton.disabled = false;
+      }, 1500);
+    }
+  }
+
+  // Mostrar detalles de la etapa
+  function showStageDetails(stageNumber) {
+    detailCards.forEach(card => card.style.display = 'none');
+    const detailCard = document.getElementById(`detail-${stageNumber}`);
+    if (detailCard) {
+      detailCard.style.display = 'block';
+    }
+  }
+
+  // Actualizar métricas con animación
+  function updateMetrics() {
+    metricValues.forEach(metric => {
+      const target = parseInt(metric.getAttribute('data-target'));
+      animateValue(metric, 0, target, 2000);
+    });
+  }
+
+  // Animación de números
+  function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      if (end % 1 === 0) {
+        // Número entero
+        element.textContent = Math.floor(progress * (end - start) + start);
+      } else {
+        // Número decimal
+        element.textContent = (progress * (end - start) + start).toFixed(1);
+      }
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Event Listeners
+  runButton.addEventListener('click', function() {
+    if (!isRunning) {
+      isRunning = true;
+      runButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ejecutando...';
+      runButton.disabled = true;
+      resetButton.disabled = true;
+      initPipeline();
+      setTimeout(runPipelineStep, 500);
+    }
+  });
+
+  resetButton.addEventListener('click', function() {
+    if (!isRunning) {
+      initPipeline();
+      // Mostrar la primera tarjeta de detalles
+      detailCards[0].style.display = 'block';
+    }
+  });
+
+  // Click en etapas para ver detalles
+  pipelineStages.forEach((stage, index) => {
+    stage.addEventListener('click', function() {
+      if (!isRunning) {
+        pipelineStages.forEach(s => s.classList.remove('active'));
+        stage.classList.add('active');
+        showStageDetails(index + 1);
+      }
+    });
+  });
+
+  // Inicializar
+  initPipeline();
+  detailCards[0].style.display = 'block'; // Mostrar primera tarjeta por defecto
+
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animar métricas cuando sean visibles
+        if (entry.target.id === 'automation-pipeline') {
+          setTimeout(updateMetrics, 500);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos animados en la sección
+  document.querySelectorAll('#automation-pipeline .animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+});
