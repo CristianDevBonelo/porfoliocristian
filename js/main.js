@@ -147,7 +147,7 @@ function initStatsChart() {
       labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
       datasets: [{
         label: 'Horas de experiencia',
-        data: [250, 100, 140, 350, 250],
+        data: [250, 200, 240, 350, 250],
         backgroundColor: 'rgba(100, 255, 218, 0.7)',
         borderColor: 'rgba(100, 255, 218, 1)',
         borderWidth: 1
@@ -355,5 +355,6 @@ function initStatsChart() {
   githubObserver.observe(githubSection);
 
 });
+
 
 
