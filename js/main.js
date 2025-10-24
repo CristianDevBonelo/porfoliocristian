@@ -3,20 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Efecto de escritura para el nombre
-  const heroName = document.querySelector(".hero-name");
-  const originalName = heroName.textContent;
-  heroName.textContent = "";
+  const heroNames = document.querySelectorAll(".hero-name, .hero-name2");
 
-  let i = 0;
-  const typeWriter = () => {
-    if (i < originalName.length) {
-      heroName.textContent += originalName.charAt(i);
-      i++;
-      setTimeout(typeWriter, 100);
-    }
-  };
+  heroNames.forEach((heroName) => {
+    const originalName = heroName.textContent;
+    heroName.textContent = "";
 
-  typeWriter();
+    let i = 0;
+    const typeWriter = () => {
+      if (i < originalName.length) {
+        heroName.textContent += originalName.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    };
+
+    typeWriter();
+  });
 
   // Actualizar fecha y hora
   function updateDateTime() {
@@ -65,15 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   const observerOptions = {
-    threshold: 0.2, 
+    threshold: 0.2,
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("visible");  
+        entry.target.classList.add("visible");
       } else {
-        entry.target.classList.remove("visible"); 
+        entry.target.classList.remove("visible");
       }
     });
   }, observerOptions);
@@ -118,74 +121,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
   statsObserver.observe(statsSection);
 
-function initStatsChart() {
-  const ctx = document.getElementById('statsChart').getContext('2d');
+  function initStatsChart() {
+    const ctx = document.getElementById('statsChart').getContext('2d');
 
-  // Plugin para sombra
-  const shadowPlugin = {
-    id: 'shadowPlugin',
-    beforeDatasetsDraw(chart, args, options) {
-      const {ctx} = chart;
-      ctx.save();
+    // Plugin para sombra
+    const shadowPlugin = {
+      id: 'shadowPlugin',
+      beforeDatasetsDraw(chart, args, options) {
+        const { ctx } = chart;
+        ctx.save();
 
-      // Detectar si la página está en modo oscuro o claro
-      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Detectar si la página está en modo oscuro o claro
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-      ctx.shadowColor = isDark ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)';
-      ctx.shadowBlur = 10;
-      ctx.shadowOffsetX = 4;
-      ctx.shadowOffsetY = 4;
-    },
-    afterDatasetsDraw(chart) {
-      chart.ctx.restore();
-    }
-  };
+        ctx.shadowColor = isDark ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)';
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = 4;
+        ctx.shadowOffsetY = 4;
+      },
+      afterDatasetsDraw(chart) {
+        chart.ctx.restore();
+      }
+    };
 
-  const chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
-      datasets: [{
-        label: 'Horas de experiencia',
-        data: [250, 200, 240, 350, 250],
-        backgroundColor: 'rgba(100, 255, 218, 0.7)',
-        borderColor: 'rgba(100, 255, 218, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            color: '#ccd6f6'
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Cypress', 'Jira', 'GitHub', 'JavaScript', 'API Testing'],
+        datasets: [{
+          label: 'Horas de experiencia',
+          data: [250, 200, 240, 350, 250],
+          backgroundColor: 'rgba(100, 255, 218, 0.7)',
+          borderColor: 'rgba(100, 255, 218, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: '#ccd6f6'
+            },
+            grid: {
+              color: 'rgba(136, 146, 176, 0.3)'
+            }
           },
-          grid: {
-            color: 'rgba(136, 146, 176, 0.3)'
+          x: {
+            ticks: {
+              color: '#ccd6f6'
+            },
+            grid: {
+              color: 'rgba(136, 146, 176, 0.3)'
+            }
           }
         },
-        x: {
-          ticks: {
-            color: '#ccd6f6'
-          },
-          grid: {
-            color: 'rgba(136, 146, 176, 0.3)'
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ccd6f6'
+            }
           }
         }
       },
-      plugins: {
-        legend: {
-          labels: {
-            color: '#ccd6f6'
-          }
-        }
-      }
-    },
-    plugins: [shadowPlugin] // activar el plugin de sombra
-  });
-}
+      plugins: [shadowPlugin] // activar el plugin de sombra
+    });
+  }
 
   // Modal para estudios adicionales
   const modal = document.getElementById('studyModal');
@@ -358,13 +361,13 @@ function initStatsChart() {
 
 
 // automation-pipeline.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const pipelineStages = document.querySelectorAll('.pipeline-stage');
   const detailCards = document.querySelectorAll('.detail-card');
   const runButton = document.getElementById('runPipeline');
   const resetButton = document.getElementById('resetPipeline');
   const metricValues = document.querySelectorAll('.metric-value');
-  
+
   let currentStage = 0;
   let isRunning = false;
 
@@ -396,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Activar etapa actual
     const currentStageElement = pipelineStages[currentStage];
     currentStageElement.classList.add('active', 'running');
-    
+
     // Mostrar detalles de la etapa
     showStageDetails(currentStage + 1);
 
@@ -439,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      
+
       if (end % 1 === 0) {
         // Número entero
         element.textContent = Math.floor(progress * (end - start) + start);
@@ -447,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Número decimal
         element.textContent = (progress * (end - start) + start).toFixed(1);
       }
-      
+
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
@@ -456,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Event Listeners
-  runButton.addEventListener('click', function() {
+  runButton.addEventListener('click', function () {
     if (!isRunning) {
       isRunning = true;
       runButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ejecutando...';
@@ -467,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  resetButton.addEventListener('click', function() {
+  resetButton.addEventListener('click', function () {
     if (!isRunning) {
       initPipeline();
       // Mostrar la primera tarjeta de detalles
@@ -477,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Click en etapas para ver detalles
   pipelineStages.forEach((stage, index) => {
-    stage.addEventListener('click', function() {
+    stage.addEventListener('click', function () {
       if (!isRunning) {
         pipelineStages.forEach(s => s.classList.remove('active'));
         stage.classList.add('active');
