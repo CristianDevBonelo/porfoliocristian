@@ -170,6 +170,7 @@ body.light-mode .section-title::after {
 .hero-text {
   flex: 1;
   min-width: 300px;
+  margin-top: -300px;
 }
 
 .hero-name {
@@ -2473,6 +2474,12 @@ body.light-mode .success-item p {
   font-weight: bold;
   margin: 0px 12px;
 }
+
 .logo:hover {
   color: #4a6fa5;
+}
+
+.img-log {
+  width: 90px;
+  margin-top: -500px;
 }
