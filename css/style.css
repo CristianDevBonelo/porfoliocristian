@@ -2468,12 +2468,18 @@ body.light-mode .success-item p {
   padding: .8rem 1.5rem;
 }
 
+.logo-one {
+  margin-left: 100px;
+}
+
 .logo {
   text-decoration: none;
   color: black;
   font-weight: bold;
   margin: 0px 12px;
+
 }
+
 
 .logo:hover {
   color: #4a6fa5;
@@ -2482,4 +2488,9 @@ body.light-mode .success-item p {
 .img-log {
   width: 90px;
   margin-top: -500px;
+  transition: transform 0.9s ease;
+}
+
+.img-log:hover {
+  transform: rotateY(180deg);
 }
