@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typeWriter();
     };
 
-    startTypewriter();
-    setInterval(startTypewriter, 6900); // Reiniciar cada 69 segundos
+
   });
 
 
@@ -523,4 +522,5 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(el);
   });
 });
+
 
