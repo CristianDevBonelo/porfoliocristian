@@ -7,19 +7,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   heroNames.forEach((heroName) => {
     const originalName = heroName.textContent;
-    heroName.textContent = "";
 
-    let i = 0;
-    const typeWriter = () => {
-      if (i < originalName.length) {
-        heroName.textContent += originalName.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
+    const startTypewriter = () => {
+      heroName.textContent = "";
+      let i = 0;
+
+      const typeWriter = () => {
+        if (i < originalName.length) {
+          heroName.textContent += originalName.charAt(i);
+          i++;
+          setTimeout(typeWriter, 140);
+        }
+      };
+
+      typeWriter();
     };
 
-    typeWriter();
+    startTypewriter();
+    setInterval(startTypewriter, 6900); // Reiniciar cada 69 segundos
   });
+
 
   // Actualizar fecha y hora
   function updateDateTime() {
@@ -516,3 +523,4 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(el);
   });
 });
+
