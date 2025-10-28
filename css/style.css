@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: "General Sans", "Satoshi", sans-serif;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   background-color: var(--primary);
   color: var(--light);
   line-height: 1.6;
@@ -233,7 +233,7 @@ body.light-mode .hero-description::before {
   border-radius: 0;
   background: transparent;
   color: wheat;
-  font-family: "Share Tech Mono", monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   font-size: 1rem;
   cursor: pointer;
   position: relative;
@@ -393,7 +393,7 @@ body.light-mode .skill-category::before {
   font-size: 1.5rem;
   color: var(--secondary);
   margin-bottom: 20px;
-  font-family: "Major Mono Display", monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 body.light-mode .skill-category h3 {
@@ -490,7 +490,7 @@ body.light-mode .project-image {
   font-size: 1.5rem;
   color: var(--secondary);
   margin-bottom: 15px;
-  font-family: "Major Mono Display", monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 body.light-mode .project-title {
@@ -715,7 +715,7 @@ body.light-mode .form-group label {
   background: rgba(10, 25, 47, 0.8);
   border: 1px solid var(--gray);
   color: var(--light);
-  font-family: "Share Tech Mono", monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   font-size: 1rem;
 }
 
@@ -911,7 +911,7 @@ body.light-mode .btn-94 {
   padding: 8px 15px;
   border-radius: 20px;
   border: 1px solid wheat;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 body.light-mode .header-time {
@@ -1053,7 +1053,7 @@ body.light-mode .stat-item {
   font-weight: bold;
   color: var(--secondary);
   margin-bottom: 10px;
-  font-family: 'Major Mono Display', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 body.light-mode .stat-number {
@@ -1815,7 +1815,7 @@ body.light-mode .pipeline-stage.active .stage-icon {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: var(--light);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 body.light-mode .pipeline-stage h3 {
@@ -1882,7 +1882,7 @@ body.light-mode .pipeline-stage.completed .stage-connector {
   background: rgba(100, 255, 218, 0.1);
   border: 2px solid var(--secondary);
   color: var(--secondary);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 5px;
@@ -1964,7 +1964,7 @@ body.light-mode .code-snippet {
 .code-snippet pre {
   margin: 0;
   color: var(--light);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   font-size: 0.9rem;
 }
 
@@ -2018,7 +2018,7 @@ body.light-mode .metric-card:hover {
   font-weight: bold;
   color: var(--secondary);
   margin-bottom: 0.5rem;
-  font-family: 'Major Mono Display', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 body.light-mode .metric-value {
@@ -2284,7 +2284,7 @@ body.light-mode .success-item p {
   padding: 12px 15px;
   border-radius: 25px;
   cursor: pointer;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   font-size: 0.85rem;
   display: flex;
   flex-direction: column;
@@ -2334,7 +2334,7 @@ body.light-mode .success-item p {
   font-size: 0.8rem;
   margin-bottom: 10px;
   text-align: center;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
 }
 
 .indicator-dot {
@@ -2395,7 +2395,7 @@ body.light-mode .success-item p {
   padding: 12px 20px;
   border-radius: 8px;
   border: 1px solid #64ffda;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   display: flex;
   gap: 15px;
   backdrop-filter: blur(10px);
@@ -2494,6 +2494,7 @@ body.light-mode .success-item p {
 .img-log:hover {
   transform: rotateY(180deg);
 }
+
 
 
 
