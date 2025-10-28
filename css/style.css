@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: "Inter Tight", "Poppins", sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", "Inter", "Poppins", sans-serif;
   background-color: var(--primary);
   color: var(--light);
   line-height: 1.6;
@@ -2494,5 +2494,6 @@ body.light-mode .success-item p {
 .img-log:hover {
   transform: rotateY(180deg);
 }
+
 
 
