@@ -929,7 +929,7 @@ body.light-mode .header-time {
   background: rgba(100, 255, 218, 0.1);
   border: 1px solid wheat;
   color: var(--secondary);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Satoshi", "Inter", "Poppins", sans-serif;
   border-radius: 30px;
   cursor: pointer;
   animation: float 3s ease-in-out infinite;
@@ -2494,6 +2494,7 @@ body.light-mode .success-item p {
 .img-log:hover {
   transform: rotateY(180deg);
 }
+
 
 
 
