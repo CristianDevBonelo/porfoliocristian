@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: "Share Tech Mono", monospace;
+  font-family: "Poppins", "Inter", "Roboto", sans-serif;
   background-color: var(--primary);
   color: var(--light);
   line-height: 1.6;
@@ -2494,3 +2494,4 @@ body.light-mode .success-item p {
 .img-log:hover {
   transform: rotateY(180deg);
 }
+
