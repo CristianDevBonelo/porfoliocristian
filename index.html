@@ -1314,6 +1314,240 @@
       </div>
     </section>
 
+
+    <!-- Sección: Artefactos de Prueba Reales -->
+<section id="testing-artifacts" class="section">
+  <div class="container">
+    <h2 class="section-title">Artefactos de Prueba QA</h2>
+    
+    <div class="artifacts-intro">
+      <p>Ejemplos reales de documentación de testing con datos anonimizados</p>
+    </div>
+
+    <div class="artifacts-tabs">
+      <button class="artifact-tab active" data-tab="test-cases">
+        <i class="fas fa-clipboard-check"></i> Casos de Prueba
+      </button>
+      <button class="artifact-tab" data-tab="test-plan">
+        <i class="fas fa-map"></i> Plan de Pruebas
+      </button>
+      <button class="artifact-tab" data-tab="test-suites">
+        <i class="fas fa-layer-group"></i> Suites
+      </button>
+      <button class="artifact-tab" data-tab="execution-evidence">
+        <i class="fas fa-camera"></i> Evidencias
+      </button>
+      <button class="artifact-tab" data-tab="defect-reports">
+        <i class="fas fa-bug"></i> Defectos
+      </button>
+    </div>
+
+    <!-- Contenido de pestañas -->
+    <div class="artifacts-content">
+      
+      <!-- Casos de Prueba -->
+      <div id="test-cases" class="artifact-tab-content active">
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <h3>TC-LOGIN-001: Login exitoso</h3>
+            <span class="artifact-tag">Funcional</span>
+            <span class="artifact-tag">Smoke Test</span>
+          </div>
+          
+          <div class="artifact-card-body">
+            <div class="artifact-field">
+              <strong>Descripción:</strong>
+              <p>Verificar que un usuario registrado pueda iniciar sesión con credenciales válidas</p>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Precondiciones:</strong>
+              <ul>
+                <li>Usuario "test_user" registrado en el sistema</li>
+                <li>Contraseña: "TestPass123!"</li>
+              </ul>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Pasos:</strong>
+              <ol>
+                <li>Navegar a /login</li>
+                <li>Ingresar usuario: test_user</li>
+                <li>Ingresar contraseña: TestPass123!</li>
+                <li>Click en botón "Iniciar Sesión"</li>
+              </ol>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Resultado Esperado:</strong>
+              <p>Redirección a dashboard principal con mensaje "Bienvenido, test_user"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan de Pruebas -->
+      <div id="test-plan" class="artifact-tab-content">
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <h3>Plan de Pruebas: E-commerce v2.1</h3>
+            <span class="artifact-tag">Release: Oct 2023</span>
+          </div>
+          
+          <div class="artifact-card-body">
+            <div class="artifact-grid">
+              <div class="artifact-grid-item">
+                <strong>Objetivo:</strong>
+                <p>Validar funcionalidades críticas del checkout y procesamiento de pagos</p>
+              </div>
+              <div class="artifact-grid-item">
+                <strong>Alcance:</strong>
+                <p>Flujo completo de compra, integración con pasarela de pago, gestión de inventario</p>
+              </div>
+              <div class="artifact-grid-item">
+                <strong>Exclusiones:</strong>
+                <p>Reportes analíticos, integración con ERP</p>
+              </div>
+              <div class="artifact-grid-item">
+                <strong>Criterios de Salida:</strong>
+                <p>95% de casos pasados, 0 defectos críticos abiertos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suites -->
+      <div id="test-suites" class="artifact-tab-content">
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <h3>Suite: Smoke Tests</h3>
+            <span class="artifact-tag">Automation</span>
+            <span class="artifact-tag">Cypress</span>
+          </div>
+          
+          <div class="artifact-card-body">
+            <pre class="artifact-code">
+describe('Smoke Tests - E-commerce', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+
+  it('TC-001: Homepage loads correctly', () => {
+    cy.get('.header-logo').should('be.visible');
+    cy.get('.product-grid').should('have.length.greaterThan', 0);
+  });
+
+  it('TC-002: User can search products', () => {
+    cy.get('.search-input').type('laptop{enter}');
+    cy.get('.search-results').should('contain', 'Resultados');
+  });
+
+  it('TC-003: Add to cart functionality', () => {
+    cy.get('.product-card').first().click();
+    cy.get('.add-to-cart-btn').click();
+    cy.get('.cart-count').should('contain', '1');
+  });
+});</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evidencias -->
+      <div id="execution-evidence" class="artifact-tab-content">
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <h3>Evidencia: Ejecución Automatizada</h3>
+            <span class="artifact-tag">Cypress Dashboard</span>
+          </div>
+          
+          <div class="artifact-card-body">
+            <div class="evidence-stats">
+              <div class="stat">
+                <div class="stat-number">42</div>
+                <div class="stat-label">Tests Ejecutados</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Pass Rate</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">1.2m</div>
+                <div class="stat-label">Duración Promedio</div>
+              </div>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Reporte de Ejecución:</strong>
+              <p>Suite completa ejecutada en pipeline CI/CD. 40 tests pasados, 2 fallidos por timeout en API externa.</p>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Screenshots:</strong>
+              <div class="evidence-grid">
+                <div class="evidence-item">
+                  <div class="evidence-placeholder">
+                    <i class="fas fa-image"></i>
+                    <p>Login exitoso</p>
+                  </div>
+                </div>
+                <div class="evidence-item">
+                  <div class="evidence-placeholder">
+                    <i class="fas fa-image"></i>
+                    <p>Checkout completado</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reporte de Defectos -->
+      <div id="defect-reports" class="artifact-tab-content">
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <h3>DEF-042: Error en cálculo de descuento</h3>
+            <span class="artifact-tag defect-priority">Alta</span>
+            <span class="artifact-tag defect-status">Cerrado</span>
+          </div>
+          
+          <div class="artifact-card-body">
+            <div class="artifact-field">
+              <strong>Resumen:</strong>
+              <p>Descuento del 20% no se aplica correctamente cuando hay múltiples productos en el carrito</p>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Pasos para Reproducir:</strong>
+              <ol>
+                <li>Agregar 3 productos al carrito (total: $300)</li>
+                <li>Aplicar cupón "DESC20"</li>
+                <li>El descuento aplicado es de $30 (10%) en lugar de $60 (20%)</li>
+              </ol>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Comportamiento Esperado:</strong>
+              <p>Descuento del 20% sobre el total ($60) aplicado correctamente</p>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Comportamiento Actual:</strong>
+              <p>Solo se aplica 10% de descuento ($30)</p>
+            </div>
+            
+            <div class="artifact-field">
+              <strong>Severidad:</strong>
+              <p>Alta - Impacta directamente en ingresos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- Footer -->
     <footer>
       <div class="container">
@@ -1449,6 +1683,34 @@
           updateFooterImage();
         });
       });
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.artifact-tab');
+      const contents = document.querySelectorAll('.artifact-tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remover clase active de todas las pestañas
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          
+          // Agregar clase active a la pestaña clickeada
+          tab.classList.add('active');
+          
+          // Mostrar contenido correspondiente
+          const tabId = tab.getAttribute('data-tab');
+          const content = document.getElementById(tabId);
+          if (content) {
+            content.classList.add('active');
+          }
+        });
+      });
+    });
+
+
+
+      
     </script>
 
     <script src="js/main.js"></script>
